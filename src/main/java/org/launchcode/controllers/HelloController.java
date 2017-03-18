@@ -27,6 +27,13 @@ public class HelloController {
     @ResponseBody
     public String helloForm() {
         String html = "<form method ='post'>" + "<input type='text' name='name' />" +
+                "<select name='select'>" +
+                    "<option value='en'>English</option>" +
+                    "<option value='fr'>French</option>" +
+                    "<option value='es'>Spanish</option>" +
+                    "<option value='de'>German</option>" +
+                    "<option value='it'>Italian</option>" +
+                "</select>" +
                 "<input type='submit' value='Greet Me!'>" +
                 "</form>";
         return html;
