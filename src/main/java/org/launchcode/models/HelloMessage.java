@@ -23,7 +23,10 @@ public class HelloMessage {
         }
 
         greet = greet + name;
-        return greet;
+
+        String html = "<p style='color:purple'>" + "<strong>" + greet + "</strong>" + "</p>";
+
+        return html;
     }
 
 }
