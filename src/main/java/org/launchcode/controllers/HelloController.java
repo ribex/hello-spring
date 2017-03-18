@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import static org.launchcode.models.HelloMessage.createMessage;
+
 /**
  * Created by Rebecca on 3/6/2017.
  */
@@ -27,7 +29,7 @@ public class HelloController {
     @ResponseBody
     public String helloForm() {
         String html = "<form method ='post'>" + "<input type='text' name='name' />" +
-                "<select name='select'>" +
+                "<select name='lang'>" +
                     "<option value='en'>English</option>" +
                     "<option value='fr'>French</option>" +
                     "<option value='es'>Spanish</option>" +
@@ -43,8 +45,9 @@ public class HelloController {
     @ResponseBody
     public String helloPost(HttpServletRequest request) {
         String name = request.getParameter("name");
+        String lang = request.getParameter("lang");
 
-        return "Hello " + name;
+        return createMessage(name, lang);
     }
 
     @RequestMapping(value = "hello/{name}")
